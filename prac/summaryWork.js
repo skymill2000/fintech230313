@@ -33,12 +33,17 @@ let car3 = {
 
 let cars = [car1, car2, car3];
 
-//Work2: 배열을 순회(돌면서) 하면서 searchValue 에 입력된 값이 나오면 해당 자동차에 상세정보와 start 메서드를 실행시켜 주세요
+//Work2: 배열을 순회(돌면서) 하면서 searchValue 에 입력된 값이 나오면 해당 자동차에 상세정보(마력) 출력과 start 메서드를 실행시켜 주세요
 //array.map 을 활용해주세요
 //if({condition}){수행 기능}
 // if(name === ""){
 // }
 
 let searchValue = "bmw";
-
 //여기서부터 작성 바랍니다.
+cars.map(({ carname, carPh, start }) => {
+  if (carname === searchValue) {
+    console.log(carPh);
+    start();
+  }
+});
