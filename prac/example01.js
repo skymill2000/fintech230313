@@ -11,3 +11,10 @@ let userAgeK = 40;
 var userName = "중복";
 
 console.log(userName);
+
+//자바
+//private String userName = "유관우";
+//private Integer userAge = 49;
+
+let today = new Date();
+console.log(today);
