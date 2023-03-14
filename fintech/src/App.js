@@ -1,6 +1,7 @@
 import "./App.css";
 import List from "./components/List";
 import State from "./components/State";
+import Styled from "./components/Styled";
 import Welcome from "./components/Welcome";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Welcome userName="고길동"></Welcome>
       <State></State>
       <List></List>
+      <Styled></Styled>
     </div>
   );
 }
