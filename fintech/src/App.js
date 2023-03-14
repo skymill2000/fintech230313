@@ -1,4 +1,5 @@
 import "./App.css";
+import State from "./components/State";
 import Welcome from "./components/Welcome";
 
 function App() {
@@ -6,8 +7,7 @@ function App() {
     <div className="App">
       <Welcome userName="홍길동"></Welcome>
       <Welcome userName="고길동"></Welcome>
-      <Welcome userName="둘리"></Welcome>
-      <Welcome userName="도우너"></Welcome>
+      <State></State>
     </div>
   );
 }
