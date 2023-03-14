@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const List = () => {
   const [users, setUsers] = useState([
@@ -7,7 +7,19 @@ const List = () => {
     { name: "길동", age: 16, height: 180 },
   ]);
 
-  return <div>List</div>;
+  return (
+    <div>
+      {users.map((user) => {
+        return (
+          <>
+            <p>{user.name}님</p>
+            <p>{user.age}세</p>
+            <p>{user.height}cm</p>
+          </>
+        );
+      })}
+    </div>
+  );
 };
 
 export default List;
