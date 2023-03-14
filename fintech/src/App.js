@@ -1,10 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-
-const Welcome = (props) => {
-  console.log(props);
-  return <p>안녕하세요 {props.userName} 님 반갑습니다. </p>;
-};
+import Welcome from "./components/Welcome";
 
 function App() {
   return (
