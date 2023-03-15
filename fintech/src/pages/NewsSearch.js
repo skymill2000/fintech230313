@@ -1,13 +1,20 @@
 import React, { useState } from "react";
+import axios from "axios";
 import AppHeader from "../components/common/AppHeader";
 import NewsList from "../components/news/NewsList";
 import SearchInput from "../components/news/SearchInput";
 
 const NewsSearch = () => {
   const [searchText, setSearchText] = useState("");
+  const [news, setNews] = useState([]);
   const handleClick = () => {
     //axios 요청 시작
     console.log(searchText);
+    let url = `/v2/everything?q=${searchText}&from=2023-02-14&sortBy=publishedAt&apiKey=78bc6ddd8cdb48ceac76f5f9b9dfc4c5`;
+    axios.get(url).then((response) => {
+      setNews(response.data);
+      console.log(news);
+    });
   };
   const handleChange = ({ target }) => {
     const { value } = target;

@@ -4,6 +4,7 @@ import Welcome from "./components/Welcome";
 import List from "./components/List";
 import Axios from "./components/Axios";
 import NewsSearch from "./pages/NewsSearch";
+import Auth from "./pages/Auth";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/list" element={<List></List>}></Route>
           <Route path="/axios" element={<Axios></Axios>}></Route>
           <Route path="/news" element={<NewsSearch></NewsSearch>}></Route>
+          <Route path="/auth" element={<Auth></Auth>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
