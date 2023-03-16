@@ -34,7 +34,7 @@ const AuthResult = () => {
 
     axios(option).then(({ data }) => {
       console.log(data);
-      data.setAccessToken(data.access_token);
+      setAccessToken(data.access_token);
       setUserSeqNo(data.user_seq_no);
       if (data.rsp_code !== "O0001") {
         localStorage.setItem("accessToken", data.access_token);
