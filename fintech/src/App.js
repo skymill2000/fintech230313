@@ -6,6 +6,7 @@ import NewsSearch from "./pages/NewsSearch";
 import Auth from "./pages/Auth";
 import AuthResult from "./pages/AuthResult";
 import Acount from "./pages/Acount";
+import Balance from "./pages/Balance";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/auth" element={<Auth></Auth>}></Route>
           <Route path="/authResult" element={<AuthResult></AuthResult>}></Route>
           <Route path="/main" element={<Acount></Acount>}></Route>
+          <Route path="/balance" element={<Balance></Balance>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
