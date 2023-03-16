@@ -23,6 +23,27 @@ const Balance = () => {
   const getBalance = () => {
     console.log("요청 만들어주세요");
     console.log(genTransId());
+    const accessToken = localStorage.getItem("accessToken");
+
+    //여기서 부터 작성 바랍니다.
+    const sendData = {
+      //??
+    };
+
+    const option = {
+      method: "GET",
+      url: "v2.0/account/balance/fin_num",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      params: sendData,
+    };
+
+    axios(option).then(({ data }) => {
+      console.log(data);
+      //   setBalance(data.res_list);
+    });
   };
 
   return (
