@@ -45,6 +45,26 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
     // axios option으로 요청을 작성하기 <- api 요청
     // application/json 은 데이터를 어떻게 전송?
     // 결과를 로그로 작성
+    const accessToken = localStorage.getItem("accessToken");
+
+    const data = {};
+
+    const option = {
+      method: "POST",
+      url: "/v2.0/transfer/withdraw/fin_num",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: data,
+    };
+
+    axios(option).then(({ data }) => {
+      if (data.rsp_code === "A0000") {
+        alert("출금 이체가 성공했습니다!");
+      } else {
+        alert("출금 이체가 실패하였습니다!");
+      }
+    });
   };
 
   const deposit = () => {
