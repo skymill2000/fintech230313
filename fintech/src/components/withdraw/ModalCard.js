@@ -77,6 +77,7 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
     axios(option).then(({ data }) => {
       if (data.rsp_code === "A0000") {
         alert("출금 이체가 성공했습니다!");
+        deposit();
       } else {
         alert("출금 이체가 실패하였습니다!");
       }
@@ -90,6 +91,46 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
      * 2legged token 사용 !
      * 입금을 하는 계좌를 잘 선택해 주세요
      */
+    const twoLeggedToken =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJNMjAyMzAwNDQwIiwic2NvcGUiOlsib29iIl0sImlzcyI6Imh0dHBzOi8vd3d3Lm9wZW5iYW5raW5nLm9yLmtyIiwiZXhwIjoxNjg2ODEwOTY0LCJqdGkiOiI3ZTc4NWU3ZC1iNTQyLTQ4ZGItYmNjOS1mNzczZTY1NzNkMzYifQ.GE163H544kkj4snzr1jvMm69-ra1ra-MPvKgxfJNk_I";
+    //2legged Token 입력바랍니다.
+
+    const data = {
+      cntr_account_type: "N",
+      cntr_account_num: "200000000001",
+      wd_pass_phrase: "NONE",
+      wd_print_content: "환불금액",
+      name_check_option: "off",
+      tran_dtime: "20220812130000",
+      req_cnt: "1",
+      req_list: [
+        {
+          tran_no: "1",
+          bank_tran_id: genTransId(),
+          fintech_use_num: tofintechno,
+          print_content: "오픈서비스캐시백",
+          tran_amt: amount,
+          req_client_name: "유관우",
+          req_client_fintech_use_num: fintechUseNo,
+          req_client_num: "SKYMILL2000",
+          transfer_purpose: "ST",
+        },
+      ],
+    };
+    const option = {
+      method: "POST",
+      url: "/v2.0/transfer/deposit/fin_num",
+      headers: {
+        Authorization: `Bearer ${twoLeggedToken}`,
+      },
+      data: data,
+    };
+
+    axios(option).then(({ data }) => {
+      if (data.rsp_code === "A0000") {
+        alert("결제 완료 !");
+      }
+    });
   };
 
   const handleChange = (e) => {
