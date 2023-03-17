@@ -8,6 +8,8 @@ import AuthResult from "./pages/AuthResult";
 import Acount from "./pages/Acount";
 import Balance from "./pages/Balance";
 import QrCode from "./pages/QrCode";
+import { QrReader } from "react-qr-reader";
+import QrReaderPage from "./pages/QrReaderPage";
 
 function App() {
   return (
@@ -23,6 +25,10 @@ function App() {
           <Route path="/main" element={<Acount></Acount>}></Route>
           <Route path="/balance" element={<Balance></Balance>}></Route>
           <Route path="/qrcode" element={<QrCode></QrCode>}></Route>
+          <Route
+            path="/qrreader"
+            element={<QrReaderPage></QrReaderPage>}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>
